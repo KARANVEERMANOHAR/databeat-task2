@@ -1,0 +1,18 @@
+.post-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+  }
+  
+  .post {
+    margin: 20px;
+    width: 600px;
+  }
+  
+  .post img {
+    width: 100%;
+    height: auto;
+  }
+  

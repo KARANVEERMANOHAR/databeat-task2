@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import AuthProvider, { AuthContext } from './AuthContext';
+import LoginForm from './LoginForm';
+import Welcome from './Welcome';
 
-function App() {
+const App = () => {
+  const { loggedIn } = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loggedIn ? <Welcome /> : <LoginForm />}
     </div>
   );
-}
+};
 
-export default App;
+const AppWrapper = () => (
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);
+
+export default AppWrapper;
